@@ -14,17 +14,17 @@ class UserManager(BaseUserManager):
         user.save(using=self._db)
         return user
 
-def create_superuser(self, username, password):
-    """
-    Creates and saves a superuser with the given username and password.
-    """
-    user = self.create_user(
-    username=username,
-    password=password,
-    )
-    user.is_admin = True
-    user.save(using=self._db)
-    return user
+    def create_superuser(self, username, password):
+        """
+        Creates and saves a superuser with the given username and password.
+        """
+        user = self.create_user(
+        username=username,
+        password=password,
+        )
+        user.is_admin = True
+        user.save(using=self._db)
+        return user
 
 class User(AbstractBaseUser, PermissionsMixin):
     id = models.BigAutoField(primary_key=True)
